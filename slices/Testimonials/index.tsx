@@ -5,7 +5,6 @@ import {
   PrismicRichText,
   SliceComponentProps
 } from "@prismicio/react";
-
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import { createClient } from "@/prismicio";
