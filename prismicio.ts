@@ -13,17 +13,15 @@ export const repositoryName =
  *
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
-// TODO: Update the routes array to match your project's route structure.
 const routes: prismic.ClientConfig["routes"] = [
-  // Examples:
-  // {
-  // 	type: "homepage",
-  // 	path: "/",
-  // },
-  // {
-  // 	type: "page",
-  // 	path: "/:uid",
-  // },
+  {
+    type: "homepage",
+    path: "/"
+  },
+  {
+    type: "page",
+    path: "/:uid"
+  }
 ];
 
 /**
@@ -39,13 +37,13 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
       process.env.NODE_ENV === "production"
         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
         : { next: { revalidate: 5 } },
-    ...config,
+    ...config
   });
 
   prismicNext.enableAutoPreviews({
     client,
     previewData: config.previewData,
-    req: config.req,
+    req: config.req
   });
 
   return client;
